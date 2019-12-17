@@ -1,0 +1,94 @@
+swagger: 2.0
+info:
+  version: 1.0.0
+  description: RAO SERVICE
+  title: RAO SERVICE
+schemes:
+- http
+host: localhost
+basePath: /rao/v1
+tags:
+- name: RAO Microservice
+  description: SCB Remote Account Opening Starter Kit
+
+paths:
+  
+  /version:
+    get:
+      tags:
+      - RAO Microservice
+      summary: Get Rao Server Version
+      description: Get Rao Mobile Application Version
+      operationId: getRaoVersion
+      produces:
+        - application/json
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RaoVersionResponse'
+        500:
+          description: Unexpected Error
+          schema:
+            $ref: '#/definitions/BaseResponse'           
+
+definitions:
+  #
+  # Rao Version Request Start
+  #  
+  MaoVersionRequest:
+    type: object
+    properties:
+      appVersion:
+        type: string
+        description: version of Application
+      staticVersion:
+        type: string
+        description: version of staticData
+  #
+  # Mao Version Request End
+  #  
+    
+  #
+  # Mao Version Response Handling Start
+  #
+  RaoVersionResponse:
+    type: object
+    properties:
+      result:
+        type: object
+        $ref: '#/definitions/BaseResponseResult'
+      data:
+        type: object
+        $ref: '#/definitions/RaoVersionResponseData'
+        
+  #
+  # Mao Version Response Handling End
+  #
+  
+  ## Common Object
+  BaseResponse:
+    type: object
+    properties:
+      result:
+        $ref: "#/definitions/BaseResponseResult"
+        
+  BaseResponseResult:
+    type: object
+    properties:
+      code:
+        type: string
+        description: The result code
+      message:
+        type: string
+        description: The description for the result
+        
+  RaoVersionResponseData:
+    type: object
+    properties:
+      appVersion:
+        type: string
+        description: Version of Mobile Application
+      staticVersion:
+        type: string
+        description: Version of Static Data
