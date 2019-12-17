@@ -1,24 +1,24 @@
 swagger: 2.0
 info:
   version: 1.0.0
-  description: RAO SERVICE
-  title: RAO SERVICE
+  description: ST SERVICE
+  title: ST SERVICE
 schemes:
 - http
 host: localhost
-basePath: /rao/v1
+basePath: /st
 tags:
-- name: RAO Microservice
-  description: SCB Remote Account Opening Starter Kit
+- name: ST Microservice
+  description: ST Starter Kit
 
 paths:
   
   /version:
     get:
       tags:
-      - RAO Microservice
-      summary: Get Rao Server Version
-      description: Get Rao Mobile Application Version
+      - ST Microservice
+      summary: Get ST Server Version
+      description: Get ST Mobile Application Version
       operationId: getRaoVersion
       produces:
         - application/json
@@ -34,7 +34,7 @@ paths:
 
 definitions:
   #
-  # Rao Version Request Start
+  # ST Version Request Start
   #  
   MaoVersionRequest:
     type: object
@@ -46,11 +46,11 @@ definitions:
         type: string
         description: version of staticData
   #
-  # Mao Version Request End
+  # ST Version Request End
   #  
     
   #
-  # Mao Version Response Handling Start
+  # ST Version Response Handling Start
   #
   RaoVersionResponse:
     type: object
@@ -63,7 +63,7 @@ definitions:
         $ref: '#/definitions/RaoVersionResponseData'
         
   #
-  # Mao Version Response Handling End
+  # ST Version Response Handling End
   #
   
   ## Common Object
