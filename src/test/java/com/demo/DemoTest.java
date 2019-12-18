@@ -14,7 +14,7 @@ public class DemoTest {
 
 	@Test
 	public void doTest() {
-		int i = 1;
+		int i = 1/0;
 		Assert.assertEquals(1, i);
 		System.out.println("do test");
 	}
