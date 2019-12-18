@@ -3,16 +3,18 @@ package com.demo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@RunWith(PowerMockRunner.class)
+@PrepareForTest
+@PowerMockIgnore({"javax.management.*"})
 public class DemoTest {
 
 	@Test
 	public void doTest() {
-		int i = 1/0;
+		int i = 1;
 		Assert.assertEquals(1, i);
 		System.out.println("do test");
 	}
