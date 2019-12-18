@@ -11,6 +11,7 @@ public class DemoTest {
 
 	@Test
 	public void doTest() {
+		int i = 1/0;
 		System.out.println("do test");
 	}
 	
