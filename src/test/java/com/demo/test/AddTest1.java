@@ -15,8 +15,8 @@ public class AddTest1 {
 
 	@Test
 	public void addTest1() {
-		System.out.println("1");
 		Assert.assertEquals(1, 1);
+		System.out.println("bbb");
 	}
 	
 }
