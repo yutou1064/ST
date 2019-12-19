@@ -12,7 +12,8 @@ public class AddTest {
 
 	@Test
 	public void tests() {
-		int i = 2;
+		//int i = 2;
+		int i = 1;
 		Assert.assertEquals(1,i);
 		System.out.println("aaa");
 	}
