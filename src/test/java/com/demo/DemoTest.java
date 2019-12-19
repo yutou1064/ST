@@ -26,4 +26,22 @@ public class DemoTest {
 		System.out.println(l);
 	}
 	
+	@Test
+	public void addTest2() {
+		Assert.assertEquals(1, 1);
+		System.out.println("bbb");
+	}
+	
+	@Test
+	public void addTest3() {
+		Assert.assertEquals(1, 1);
+		System.out.println("ccc");
+	}
+	
+	@Test
+	public void addTest4() {
+		Assert.assertEquals(1, 1);
+		System.out.println("ddd");
+	}
+	
 }
