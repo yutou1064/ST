@@ -96,7 +96,7 @@ definitions:
         $ref: '#/definitions/BaseResponseResult'
       data:
         type: object
-        $ref: '#/definitions/RaoVersionResponseData'
+        $ref: '#/definitions/STVersionResponseData'
         
   #
   # ST Version Response Handling End
@@ -137,6 +137,9 @@ definitions:
       message:
         type: string
         description: The description for the result
+  ScbCurrency:
+    type: object
+    properties:
         
   STVersionResponseData:
     type: object
