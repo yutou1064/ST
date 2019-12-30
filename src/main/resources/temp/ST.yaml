@@ -140,6 +140,12 @@ definitions:
   ScbCurrency:
     type: object
     properties:
+  ScbAnnotation:
+    type: object
+    properties:
+  ScbDistrict:
+    type: object
+    properties:
         
   STVersionResponseData:
     type: object
