@@ -1,24 +1,24 @@
 swagger: 2.0
 info:
   version: 1.0.0
-  description: ST SERVICE
-  title: ST SERVICE
+  description: RAO SERVICE
+  title: RAO SERVICE
 schemes:
 - http
 host: localhost
-basePath: /st
+basePath: /rao/v1
 tags:
-- name: ST Microservice
-  description: ST Starter Kit
+- name: RAO Microservice
+  description: SCB Remote Account Opening Starter Kit
 
 paths:
   
   /version:
     get:
       tags:
-      - ST Microservice
-      summary: Get ST Server Version
-      description: Get ST Mobile Application Version
+      - RAO Microservice
+      summary: Get Rao Server Version
+      description: Get Rao Mobile Application Version
       operationId: getRaoVersion
       produces:
         - application/json
@@ -30,11 +30,47 @@ paths:
         500:
           description: Unexpected Error
           schema:
+            $ref: '#/definitions/BaseResponse'
+  /branch:
+    get:
+      tags:
+      - RAO Microservice
+      summary: Get Branch Location
+      description: Get Branch Location
+      operationId: getBranchLocation
+      produces:
+        - application/json
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/BranchLocationResponse'
+        500:
+          description: Unexpected Error
+          schema:
+            $ref: '#/definitions/BaseResponse'
+  /fxrate:
+    get:
+      tags:
+      - RAO Microservice
+      summary: Get Foreign Exchange Rate
+      description: Get Foreign Exchange Rate
+      operationId: getForeignExchangeRate
+      produces:
+        - application/json
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ScbCurrency'
+        500:
+          description: Unexpected Error
+          schema:
             $ref: '#/definitions/BaseResponse'           
 
 definitions:
   #
-  # ST Version Request Start
+  # Rao Version Request Start
   #  
   MaoVersionRequest:
     type: object
@@ -46,11 +82,11 @@ definitions:
         type: string
         description: version of staticData
   #
-  # ST Version Request End
+  # Mao Version Request End
   #  
     
   #
-  # ST Version Response Handling Start
+  # Mao Version Response Handling Start
   #
   RaoVersionResponse:
     type: object
@@ -63,7 +99,26 @@ definitions:
         $ref: '#/definitions/RaoVersionResponseData'
         
   #
-  # ST Version Response Handling End
+  # Mao Version Response Handling End
+  #
+  
+  #
+  #branch location Response Handling start
+  #
+  BranchLocationResponse:
+    type: object
+    properties:
+      scbAnnotation:
+        type: object
+        description: the part of annotation
+        $ref: '#/definitions/ScbAnnotation'
+      scbDistrict:
+        type: object
+        description: the annotation corresponding district
+        $ref: '#/definitions/ScbDistrict'
+        
+  #
+  #branch location Response Handling start
   #
   
   ## Common Object
