@@ -85,7 +85,7 @@
 				<configuration>
 					<webResources>
 						<resources>
-							<directory>src/main/resource/application.properties</directory>
+							<directory>${project.basedir}/src/main/resources/temp/application.properties</directory>
 							<targetPath>WEB-INF</targetPath>
 						</resources>
 					</webResources>
