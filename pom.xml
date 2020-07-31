@@ -85,7 +85,7 @@
 				<configuration>
 					<webResources>
 						<resources>
-							<directory>src/main/resource/application</directory>
+							<directory>src/main/resource/application.properties</directory>
 							<targetPath>WEB-INF</targetPath>
 						</resources>
 					</webResources>
