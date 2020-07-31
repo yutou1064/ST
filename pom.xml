@@ -80,6 +80,18 @@
 		<finalName>ST</finalName>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resources>
+							<directory>src/main/resource/application</directory>
+							<targetPath>WEB-INF</targetPath>
+						</resources>
+					</webResources>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
