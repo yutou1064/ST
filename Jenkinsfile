@@ -36,7 +36,7 @@ pipeline {
                 echo 'push war to target server'
                 sh '''
                     ole_image_id='docker images|grep ${IMAGE_NAME}|grep ${VERSION_ID}|awk '{print $3}''
-                    if ( -n ${ole_image_id} ) then
+                    if [[ -n "${ole_image_id}" ]] then
                         docker rmi -f ${ole_image_id}
                     fi
                     
