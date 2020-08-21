@@ -25,6 +25,7 @@ pipeline {
         stage('Build') {
             steps{
                 echo 'This is a Build step'
+                source /etc/profile
                 // 在有Jenkinsfile同一个目录下（项目的根目录下）
                 sh 'mvn clean package -Dmaven.test.skip=true'
             }
