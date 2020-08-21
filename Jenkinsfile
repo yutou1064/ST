@@ -52,4 +52,40 @@ pipeline {
             agent {
                 node {
                     label 'test'
-                    //customWorkspace "${SER
+                    //customWorkspace "${SERVER_TARGET_PATH}"  //此参数会初始化目录 注意填写
+                    }
+            }
+            options {
+                // 不让它切换到节点上自动从仓库拉取项目
+                skipDefaultCheckout()
+            }
+            steps {
+                echo 'pull image and docker run'
+                withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {
+                    sh '''
+                        sudo docker login --username=yourusername --password=yourpassword ccr.ccs.tencentyun.com
+                        sudo docker pull ${IMAGE_ADDR}:${VERSION_ID}
+
+                        container_id=`docker ps|grep ${IMAGE_ADDR}:${VERSION_ID}|awk '{print $1}'`
+                        if [ -n "${container_id}" ]; then
+                        	docker rm -f "${container_id}"
+                        fi
+                        
+                        old_pid=`ps -ef|grep ${JAR_NAME}|grep -v grep|awk '{print $2}'`
+                        if [[ -n $old_pid ]]; then
+                            kill -9 $old_pid
+                        fi
+                        
+                        old_image=`docker images|grep ${IMAGE_ADDR}|grep ${VERSION_ID}`
+                        if [[ -n $old_image ]]; then
+                            old_image_id=`echo ${old_image}|awk '{print $3}'`
+                            docker rmi -f ${old_image_id}
+                        fi
+                        
+                        sudo docker run --name "${PROJECT_NAME}_${VERSION_ID}" -p 9001:8081 -d ${IMAGE_ADDR}:${VERSION_ID}
+                    '''
+                }
+            }
+        }
+    }
+}
