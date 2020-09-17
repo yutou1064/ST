@@ -97,6 +97,27 @@
 				</configuration>
 				<version>2.19</version>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.6.1</version>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>vaildate</phase>
+						<configuration>
+							<configLocation></configLocation>
+							<encoding>UTF-8</encoding>
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+						</configuration>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 			<!--swagger codegen maven plugin -->
 			<plugin>
@@ -142,6 +163,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		
 		<pluginManagement>
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
