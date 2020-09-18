@@ -101,20 +101,20 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.1.1</version>
+				<configuration>
+					<configLocation>${project.basedir}/checkstyle/google_checks.xml</configLocation>
+				</configuration>
 				<executions>
 					<execution>
-						<id>validate</id>
+						<id>checkstyle</id>
 						<phase>vaildate</phase>
-						<configuration>
-							<configLocation>file://${project.basedir}/checkstyle/google_checks.xml</configLocation>
-							<encoding>UTF-8</encoding>
-							<consoleOutput>true</consoleOutput>
-							<failsOnError>true</failsOnError>
-						</configuration>
 						<goals>
 							<goal>check</goal>
 						</goals>
+					<configuration>
+						<failOnViolation>true</failOnViolation>
+					</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -202,9 +202,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.1.1</version>
 				<configuration>
-					<configLocation>file://${project.basedir}/checkstyle/google_checks.xml</configLocation>
+					<configLocation>${project.basedir}/checkstyle/google_checks.xml</configLocation>
 				</configuration>
 				<reportSets>
 					<reportSet>
