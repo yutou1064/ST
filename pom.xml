@@ -118,6 +118,23 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.5</version>
+                <!--在compile后自动执行check，必须事先compile编译过,不然findbugs不能发现bug-->
+                <executions>
+                    <execution>
+                        <id>findbugs-check</id>
+                        <phase>compile</phase>
+                        <!--<goals>-->
+                        <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    </execution>
+                </executions>
+ 			</plugin>
+			
 
 			<!--swagger codegen maven plugin -->
 			<plugin>
@@ -213,6 +230,11 @@
 						</reports>
 					</reportSet>
 				</reportSets>
+			</plugin>
+			<plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			    <artifactId>findbugs-maven-plugin</artifactId>
+			    <version>3.0.5</version>
 			</plugin>
 		</plugins>
 	</reporting>
