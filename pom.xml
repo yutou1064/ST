@@ -134,6 +134,33 @@
                     </execution>
                 </executions>
  			</plugin>
+ 			
+ 			<plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-pmd-plugin</artifactId>
+		        <version>3.13.0</version>
+		        <configuration>
+		            <!--开启增量分析 -->
+		            <!--加快PMD的执行速度，同时保持分析的质量。-->
+		            <analysisCache>true</analysisCache>
+		            <sourceEncoding>utf-8</sourceEncoding>
+		            <minimumTokens>100</minimumTokens>
+		            <!--false禁用此选项以使用0退出并只编写报告-->
+		            <failOnViolation>false
+		            </failOnViolation>
+		            <printFailingErrors>true</printFailingErrors>
+		        </configuration>
+		        <executions>
+		            <execution>
+		                <id>verify</id>
+		                <!--verify阶段可以使用cpm的功能-->
+		                <phase>verify</phase>
+		                <goals>
+		                    <goal>check</goal>
+		                </goals>
+		            </execution>
+		        </executions>
+		    </plugin>
 			
 
 			<!--swagger codegen maven plugin -->
@@ -236,6 +263,11 @@
 			    <artifactId>findbugs-maven-plugin</artifactId>
 			    <version>3.0.5</version>
 			</plugin>
+			 <plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-pmd-plugin</artifactId>
+		        <version>3.13.0</version>
+		    </plugin>
 		</plugins>
 	</reporting>
 </project>
